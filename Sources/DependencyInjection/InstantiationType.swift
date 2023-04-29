@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum InstantiationType {
+public enum InstantiationType {
     case singleton
     case newInstance
     case automatic

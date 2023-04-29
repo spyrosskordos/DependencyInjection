@@ -8,11 +8,11 @@
 import Foundation
 
 @propertyWrapper
-struct Dependency<Dependency> {
+public struct Dependency<Dependency> {
 
     var dependency: Dependency
 
-    init(_ instantiationType: InstantiationType = .newInstance) {
+    public init(_ instantiationType: InstantiationType = .newInstance) {
         guard let dependency = DependencyContainer.resolve(dependencyType: instantiationType, Dependency.self)
         else {
             fatalError("No dependency of type \(String(describing: Dependency.self)) registered!")
@@ -20,7 +20,7 @@ struct Dependency<Dependency> {
         self.dependency = dependency
     }
 
-    var wrappedValue: Dependency {
+   public var wrappedValue: Dependency {
         get { self.dependency }
         mutating set { dependency = newValue }
     }
